@@ -1,3 +1,11 @@
+let img;
+// let clicked = false;
+
+function preload() {
+  img = loadImage('../assets/lips.png');
+
+}
+
 function setup() {
   // These lines are fitting our canvas
   // where we want in the DOM
@@ -9,18 +17,30 @@ function setup() {
 
 function draw() {
   background('#33A4FF');
-  push();
-  translate(200,200)
+  drawBackground(200,200);
+  // translate(200,200)
+  drawTurtle (200,200);
+  drawLips (200,200);
   
+}
+function drawBackground(x, y) {
+    //background pattern
+    push()
+    translate(x, y);
+    fill('#4DA0AF')
+    stroke('#4FF4E9 ')
+    strokeWeight(10)
+    line(-400, 400, 400, -400);
+    strokeWeight(1)
+    pop();
+  }
+
+
   //all creature code
 
-  //background pattern
-  fill('#4DA0AF')
-  stroke('#4FF4E9 ')
-  strokeWeight(10)
-  line(-400, 400, 400, -400);
-  strokeWeight(1)
-  
+function drawTurtle(x, y){
+push()
+translate(x, y);
    //legs
    fill('#398D1A ')
 stroke('#C7DE50')
@@ -71,4 +91,12 @@ noStroke(0)
   arc(-15,-108,10,5,0,PI)
   
     pop()
+}
+
+function drawLips(x, y) {
+  push()
+  translate(x, y);
+  image(img, -110, -60, 300, 200);
+
+  pop()
 }
