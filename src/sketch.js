@@ -1,5 +1,8 @@
 let img;
 // let clicked = false;
+let y = 0
+let s = 0.8;
+let r = 0.25
 
 function preload() {
   img = loadImage('../assets/lips.png');
@@ -19,11 +22,18 @@ function draw() {
   background('#33A4FF');
   drawBackground(200, 200);
   // translate(200,200)
-  drawTurtle (200, 200);
+  drawTurtle (200, y, 0.5);
+  y++;
   drawPanda(265, 130, .05);
-  drawLips (200, 200);
+  drawLips(180,180, r);
 
-  
+//     if(clicked){
+// translate (100,100);
+//     }
+
+    if (y >= 250 && y <= 253) {
+   s++;
+  }
 }
 function drawBackground(x, y) {
     //background pattern
@@ -40,9 +50,11 @@ function drawBackground(x, y) {
 
   //all creature code
 
-function drawTurtle(x, y){
+function drawTurtle(x, y, s){
 push()
 translate(x, y);
+scale(s);
+// scale(s);
    //legs
    fill('#398D1A ')
 stroke('#C7DE50')
@@ -95,9 +107,11 @@ noStroke(0)
     pop()
 }
 
-function drawLips(x, y) {
+function drawLips(x, y, r) {
   push()
   translate(x, y);
+  scale(s);
+rotate();
   image(img, -110, -60, 300, 200);
 
   pop()
@@ -141,3 +155,13 @@ function drawPanda(x, y, s){
 
   pop();
 }
+
+// function mouseClicked() {
+//   if (mouseX > 116 &&
+//       mouseY > 180 &&
+//       mouseX < 300 &&
+//      mouseY < 230) {
+
+//     clicked = !clicked;
+//   }
+// }
